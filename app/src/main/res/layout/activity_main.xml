@@ -4,14 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <fragment
+        android:id="@+id/placeFragment"
+        android:name="com.example.weather.ui.place.PlaceFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <TextView
-            android:id="@+id/response_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </ScrollView>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
