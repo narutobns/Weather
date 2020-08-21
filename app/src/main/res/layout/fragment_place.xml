@@ -39,4 +39,5 @@
         android:layout_below="@id/actionBarLayout"
         android:visibility="gone"/>
 
+
 </RelativeLayout>

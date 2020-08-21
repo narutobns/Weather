@@ -6,7 +6,7 @@ import com.example.weather.logic.Repository;
 
 import java.util.List;
 
-public class WeatherNetwork extends AsyncTask<Void, Void, List<ResponseBean>> {
+public class WeatherNetwork extends AsyncTask<Void, Void, String> {
     private String url;
     private HttpCallback callback;
     private String TAG = "WeatherNetwork";
@@ -19,17 +19,17 @@ public class WeatherNetwork extends AsyncTask<Void, Void, List<ResponseBean>> {
     }
 
     @Override
-    protected List<ResponseBean> doInBackground(Void... voids) {
+    protected String doInBackground(Void... voids) {
         HttpUtil httpUtil = new HttpUtil();
         String response = httpUtil.HttpURLConnection(url,requestMethod);
-        return Repository.handelProvince(response);
+        return response;
     }
 
     @Override
-    protected void onPostExecute(List<ResponseBean> beanList) {
-        if (beanList != null) {
+    protected void onPostExecute(String response) {
+        if (response != null) {
             if (callback != null) {
-                callback.onFinish(beanList);
+                callback.onFinish(response);
             }
         } else if (callback != null) {
             callback.onError(TAG);
