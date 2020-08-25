@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity implements HttpCallback, Vie
     }
 
     @Override
-    public void onFinish(String response) {
-        placeViewModel.setResponse(response);
+    public void onFinish(String... response) {
+        placeViewModel.setResponse(response[0]);
         PlaceAdapter adapter = new PlaceAdapter(placeViewModel.getResponse().getValue());
         recyclerView.setAdapter(adapter);
 //        placeViewModel.getResponse().observe(this, places -> {

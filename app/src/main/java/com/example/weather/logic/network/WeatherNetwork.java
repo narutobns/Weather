@@ -2,9 +2,6 @@ package com.example.weather.logic.network;
 
 import android.os.AsyncTask;
 
-import com.example.weather.logic.Repository;
-
-import java.util.List;
 
 public class WeatherNetwork extends AsyncTask<Void, Void, String> {
     private String url;
@@ -29,7 +26,7 @@ public class WeatherNetwork extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String response) {
         if (response != null) {
             if (callback != null) {
-                callback.onFinish(response);
+                callback.onFinish(response,url);
             }
         } else if (callback != null) {
             callback.onError(TAG);
